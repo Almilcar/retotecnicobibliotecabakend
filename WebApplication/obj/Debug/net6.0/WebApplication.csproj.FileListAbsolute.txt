@@ -126,3 +126,4 @@ D:\Examenes de ingreso al trabajo\RetoTecnico\RetoTecnico1\WebApplication\obj\De
 D:\Examenes de ingreso al trabajo\RetoTecnico\RetoTecnico1\WebApplication\obj\Debug\net6.0\WebApplication.pdb
 D:\Examenes de ingreso al trabajo\RetoTecnico\RetoTecnico1\WebApplication\obj\Debug\net6.0\WebApplication.genruntimeconfig.cache
 D:\Examenes de ingreso al trabajo\RetoTecnico\RetoTecnico1\WebApplication\obj\Debug\net6.0\ref\WebApplication.dll
+D:\Examenes de ingreso al trabajo\RetoTecnico\RetoTecnico1\WebApplication\obj\Debug\net6.0\WebApplication.sourcelink.json

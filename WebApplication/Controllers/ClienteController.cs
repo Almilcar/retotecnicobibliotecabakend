@@ -18,8 +18,16 @@ namespace WebApplication.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
-            var clientes = await _clienteService.GetAllClientsAsync();
-            return Ok(clientes);
+            try
+            {
+                var clientes = await _clienteService.GetAllClientsAsync();
+                return Ok(clientes);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensaje = ex.Message });
+            }
+
         }
 
         [HttpGet("{id}")]

@@ -11,29 +11,29 @@ namespace WebApplication.Models
 
         [Required]
         [StringLength(150)]   
-        public string NombreCompleto { get; set; }
+        public string? NombreCompleto { get; set; }
 
         [StringLength(20)]
-        public string Documento { get; set; }
+        public string? Documento { get; set; }
 
         [StringLength(20)]
-        public string Telefono { get; set; }
+        public string? Telefono { get; set; }
 
         [StringLength(100)]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [StringLength(200)]
-        public string Direccion { get; set; }
+        public string? Direccion { get; set; }
 
         [StringLength(10)]
-        public string Ubigeo { get; set; }
+        public string? Ubigeo { get; set; }
 
-        public bool EnListaNegra { get; set; }
+        public bool? EnListaNegra { get; set; }
 
-        public string Departamento { get; set; }
-        public string  Provincia{ get; set; }
-        public string  Distrito{ get; set; }
+        public string? Departamento { get; set; }
+        public string?  Provincia{ get; set; }
+        public string?  Distrito{ get; set; }
 
-        public string TipoDocumento { get; set; }
+        public string? TipoDocumento { get; set; }
     }
 }
