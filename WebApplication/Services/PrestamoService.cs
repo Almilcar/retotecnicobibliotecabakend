@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System.Data;
 using System.Globalization;
 using WebApplication.ConexionBD;
@@ -19,7 +20,7 @@ namespace WebApplication.Services
             _context = context;
         }
 
-        public async Task<bool> RegistrarPrestamoAsync(PrestamoRequestDTO request)
+        public async Task<bool> RegistrarPrestamoAsync(PrestamoDTO request)
         {
             try
             {
@@ -64,10 +65,28 @@ namespace WebApplication.Services
             }
             catch (Exception ex)
             {
-                // Loguear el error
                 Console.WriteLine($"Error al guardar en la base de datos: {ex.Message}");
                 throw;
             }
         }
+
+        public async Task<List<PrestamoDTO>> ObtenerPrestamosAsync()
+        {
+            var prestamos = await _context.Prestamo
+                .Include(p => p.Detalles)
+                .Select(p => new PrestamoDTO
+                {
+                    IdCliente = p.IdCliente,
+                    MedioEntrega = p.MedioEntrega,
+                    Libros = p.Detalles.Select(d => new DetallePrestamoDTO
+                    {
+                        IdCopia = d.IdCopia,
+                        FechaEntrega = d.FechaEntrega
+                    }).ToList()
+                }).ToListAsync();
+
+            return prestamos;
+        }
+
     }
 }

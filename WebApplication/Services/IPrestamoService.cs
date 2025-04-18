@@ -4,6 +4,8 @@ namespace WebApplication.Services
 {
     public interface IPrestamoService
     {
-        Task<bool> RegistrarPrestamoAsync(PrestamoRequestDTO request);
+        Task<bool> RegistrarPrestamoAsync(PrestamoDTO request);
+
+        Task<List<PrestamoDTO>> ObtenerPrestamosAsync();
     }
 }

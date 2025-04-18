@@ -21,8 +21,15 @@ namespace WebApplication.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuarios>>> GetUsuarios()
         {
-            var usuarios = await _usuarioService.GetUsuariosAsync();
-            return Ok(usuarios);
+            try
+            {
+                var usuarios = await _usuarioService.GetUsuariosAsync();
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensaje = ex.Message });
+            }
         }
 
         [HttpPost]

@@ -107,4 +107,6 @@ VALUES ('1234567890987', 2, 'Estante 4 - Fila 6', 'Disponible');
 --ALTER AUTHORIZATION ON DATABASE::[BDPROYECTORETO] TO [sa]
 --GO
 
-	 
+	 select * from cliente
+
+	 select * from Usuario

@@ -16,7 +16,7 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost("registrar")]
-        public async Task<IActionResult> Registrar([FromBody] PrestamoRequestDTO request)
+        public async Task<IActionResult> Registrar([FromBody] PrestamoDTO request)
         {
             try
             {
@@ -33,5 +33,20 @@ namespace WebApplication.Controllers
         {
             return Ok("Bienvenido a la API de préstamos. Use /api/libros/registrar para registrar un préstamo.");
         }
+
+        [HttpGet("listar")]
+        public async Task<IActionResult> Listar()
+        {
+            try
+            {
+                var prestamos = await _service.ObtenerPrestamosAsync();
+                return Ok(prestamos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { mensaje = ex.Message });
+            }
+        }
+
     }
 }
